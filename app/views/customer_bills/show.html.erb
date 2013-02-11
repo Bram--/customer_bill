@@ -1,0 +1,12 @@
+<strong>
+  <%= flash[:notice] %>
+</strong>
+<%= form_for @customer_bill do |form| %>
+  <%= form.text_field :name %>
+  <%= form.fields_for :customer_bill_line_items do |builder| %>
+    <hr />
+    <%= render 'customer_bill_line_item_fields', :form => builder %>
+  <% end %>
+  <hr />
+  <%= form.submit :submit %>
+<% end %>
